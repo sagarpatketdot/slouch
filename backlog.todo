@@ -4,6 +4,6 @@ Initial Setup:
     ☐ Configure TanStack project for Slouch Web
     ☐ Configure SpringBoot Web project for Slouch API Core
     ☐ Install Cassandra Database as Core Datastore
-    ☐ Install Authentik as Slouch Identity Provider
-      ☐ Install Redis as Authentik Memory
-      ☐ Install PostgreSQL as Authentik datastore
+    ✔ Install Authentik as Slouch Identity Provider @done(25-06-28 13:04)
+      ✔ Install Redis as Authentik Memory - Included in Authentik helm chart @done(25-06-28 13:04)
+      ✔ Install PostgreSQL as Authentik datastore - Included in Authentik helm chart @done(25-06-28 13:04)
