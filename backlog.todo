@@ -1,9 +1,10 @@
 Initial Setup:
-  ☐ Setup web containers for Slouch Software System
+  ✔ Setup web containers for Slouch Software System @done(25-06-28 14:20)
     ✔ Configure Nginx Ingress as API Gateway @done(25-06-27 23:59)
-    ☐ Configure TanStack project for Slouch Web
-    ☐ Configure SpringBoot Web project for Slouch API Core
-    ☐ Install Cassandra Database as Core Datastore
+    ✔ Configure TanStack project for Slouch Web @done(25-06-28 14:20)
+    ✔ Configure SpringBoot Web project for Slouch API Core @done(25-06-28 14:20)
+    ✔ Install Cassandra Database as Core Datastore @done(25-06-28 14:20)
     ✔ Install Authentik as Slouch Identity Provider @done(25-06-28 13:04)
       ✔ Install Redis as Authentik Memory - Included in Authentik helm chart @done(25-06-28 13:04)
       ✔ Install PostgreSQL as Authentik datastore - Included in Authentik helm chart @done(25-06-28 13:04)
+  ☐ Configure Skaffold @started(25-06-28 14:20)

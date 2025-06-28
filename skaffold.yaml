@@ -1,0 +1,42 @@
+apiVersion: skaffold/v4beta13
+kind: Config
+metadata:
+  name: slouch
+build:
+  artifacts:
+    - image: slouch-core
+      context: core
+      docker:
+        dockerfile: Dockerfile
+    - image: slouch-ui
+      context: ui
+      docker:
+        dockerfile: Dockerfile
+manifests:
+  rawYaml:
+    - k8s/core.yaml
+    - k8s/ingress-test.yaml
+    - k8s/ui.yaml
+deploy:
+  helm:
+    releases:
+      - name: ingress-nginx
+        repo: https://kubernetes.github.io/ingress-nginx
+        remoteChart: ingress-nginx
+        namespace: ingress-nginx
+        createNamespace: true
+        valuesFiles:
+          - ./values/ingress-nginx.yaml
+      - name: authentik
+        repo: https://charts.goauthentik.io
+        remoteChart: authentik
+        namespace: authentik
+        createNamespace: true
+        valuesFiles:
+          - ./values/authentik.yaml
+      - name: cassandra
+        remoteChart: oci://registry-1.docker.io/bitnamicharts/cassandra
+        namespace: cassandra
+        createNamespace: true
+        valuesFiles:
+          - ./values/cassandra.yaml

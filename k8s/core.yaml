@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: slouch-core
+spec:
+  selector:
+    matchLabels:
+      app: slouch-core
+  template:
+    metadata:
+      labels:
+        app: slouch-core
+    spec:
+      containers:
+      - name: slouch-core
+        image: slouch-core
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: core
+spec:
+  selector:
+    app: slouch-core
+  ports:
+  - port: 8080
+    targetPort: 8080
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: core
+  labels:
+    name: core
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: core-127-0-0-1.nip.io
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: core
+            port: 
+              number: 8080
