@@ -1,0 +1,15 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: slouch-cluster
+nodes:
+  - role: control-plane
+    extraPortMappings:
+      - containerPort: 30950
+        hostPort: 80
+      - containerPort: 30960
+        hostPort: 443
+  - role: worker
+  - role: worker
+  - role: worker
+  - role: worker
+  - role: worker
