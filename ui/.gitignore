@@ -1,3 +1,4 @@
+.tanstack
+.output
+.nitro
 node_modules/
-.*
-count.txt
